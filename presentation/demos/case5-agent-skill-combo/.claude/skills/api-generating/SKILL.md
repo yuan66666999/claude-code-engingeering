@@ -15,7 +15,7 @@ allowed-tools: [Read, Grep, Glob, Write, Bash(python *)]
 **You MUST use the Python script for route detection:**
 
 ```bash
-python3 skills/scripts/detect-routes.py src/
+python skills/scripts/detect-routes.py src/
 ```
 
 DO NOT manually search for routes using Grep — the script handles edge cases

@@ -443,6 +443,15 @@ ShopStream 电商平台，用户报告三个症状：
 
 ---
 
+## 什么是 Skills？— 从"人调度模型"到"模型调度能力"
+
+![w:950](images/slide-3-0-what-is-skills.png)
+
+> **Skills 不是教模型怎么干活，而是定义：什么行为算数，什么标准成立，什么判断合理。
+> 它是连接"行动能力"与"语义世界"的中间层 — 让通用模型具备专业化、按需调用能力。**
+
+---
+
 ## Skills vs SubAgent
 
 ![w:950](images/slide-3-1-skills-vs-subagent.png)

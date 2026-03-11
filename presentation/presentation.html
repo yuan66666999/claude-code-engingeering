@@ -1180,13 +1180,156 @@
           </div>
 
           <div class="subsection-nav">
-            <div class="subsection-tab active" data-tab="skills-vs-subagent">Skills vs SubAgent</div>
+            <div class="subsection-tab active" data-tab="what-is-skills">什么是 Skills</div>
+            <div class="subsection-tab" data-tab="skills-vs-subagent">Skills vs SubAgent</div>
             <div class="subsection-tab" data-tab="skills-loading">渐进式加载</div>
             <div class="subsection-tab" data-tab="skill-basic">Skill 编写</div>
             <div class="subsection-tab" data-tab="commands">Commands</div>
           </div>
 
-          <div class="subsection-content active" id="skills-vs-subagent">
+          <div class="subsection-content active" id="what-is-skills">
+            <div class="img-container" data-img="slide-3-0-what-is-skills.png">
+              <div class="placeholder">
+                <div class="placeholder-icon">🧠</div>
+                <div>什么是 Skills — 从人调度模型到模型调度能力</div>
+                <div class="img-caption">images/slide-3-0-what-is-skills.png</div>
+              </div>
+            </div>
+
+            <h3 style="margin: 24px 0 16px;">🤔 一个现实问题</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">每个团队都有大量的"隐性知识"——代码规范散落在 Wiki 里，部署流程记在老员工脑子里，排查经验埋在历史 Issue 中。新人上手靠"师傅带"，AI 上手靠"你喂 Prompt"。</p>
+
+            <div class="card">
+              <p style="margin-bottom: 12px;">问题在于：</p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon">📏</div>
+                  <span>上下文窗口是有限的，不可能把所有知识一次性塞给模型</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">🎯</div>
+                  <span>什么时候该用哪块知识，过去全靠人来判断和调度</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">📈</div>
+                  <span>当知识规模和场景组合持续增长，"人预编排一切"的模式开始失效</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="margin: 20px 0;">
+              <p style="color: var(--accent-green); font-size: 18px; margin-bottom: 8px;">💡 Skills 解决的核心问题</p>
+              <p style="color: var(--text-secondary);">在有限的上下文窗口中，让 Agent 在<strong>正确的时刻拥有正确的领域知识</strong>。</p>
+            </div>
+
+            <h3 style="margin: 32px 0 16px;">📚 Skills 到底是什么？</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>类比</th>
+                  <th>说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>传统做法 = 纸质手册</td>
+                  <td>所有流程印成厚厚的操作手册，用不用、翻到哪页，全靠人自己判断</td>
+                </tr>
+                <tr>
+                  <td>Prompt = 口头嘱咐</td>
+                  <td>每次开工前口头交代一遍注意事项，说漏了就没了</td>
+                </tr>
+                <tr>
+                  <td><strong>Skill = 智能工具箱</strong></td>
+                  <td>工具箱自己知道"现在该递扳手还是螺丝刀"，按需打开正确的那一格</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card" style="margin: 20px 0;">
+              <h4 style="margin-bottom: 12px;">一个 Skill 包含三层内容：</h4>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon">🎯</div>
+                  <span><strong>description（触发条件）</strong> — 告诉模型"什么情况下该加载我"</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">📋</div>
+                  <span><strong>正文（执行流程）</strong> — 将抽象原则转化为可执行步骤</span>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon">📎</div>
+                  <span><strong>附录（参考资料）</strong> — 模板、脚本、检查清单，按需加载</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 style="margin: 32px 0 16px;">🔄 范式转变</h3>
+            <div class="grid-2">
+              <div class="card">
+                <h4 style="color: var(--text-muted); margin-bottom: 12px;">过去：人调度模型</h4>
+                <div class="code-block" data-lang="workflow" style="margin: 0;">
+<pre><code>人判断场景
+→ 人选择知识
+→ 人编写 Prompt
+→ 模型执行</code></pre>
+                </div>
+              </div>
+              <div class="card">
+                <h4 style="color: var(--accent-green); margin-bottom: 12px;">现在：模型调度能力</h4>
+                <div class="code-block" data-lang="workflow" style="margin: 0;">
+<pre><code>模型理解意图
+→ 模型匹配 Skill
+→ 自动加载知识
+→ 按流程执行</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="margin: 24px 0 12px;">对比维度</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>维度</th>
+                  <th>过去（人调度模型）</th>
+                  <th>现在（模型调度能力）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>知识获取</td>
+                  <td>人翻文档、问同事</td>
+                  <td>模型按语义自动匹配 Skill</td>
+                </tr>
+                <tr>
+                  <td>流程执行</td>
+                  <td>人编排步骤写进 Prompt</td>
+                  <td>Skill 内置标准化流程</td>
+                </tr>
+                <tr>
+                  <td>质量标准</td>
+                  <td>靠经验、靠记忆</td>
+                  <td>Skill 定义"什么算数、什么标准成立"</td>
+                </tr>
+                <tr>
+                  <td>扩展性</td>
+                  <td>场景越多，Prompt 越复杂</td>
+                  <td>新增 Skill 即可，互不干扰</td>
+                </tr>
+                <tr>
+                  <td>可复用性</td>
+                  <td>每次重新写 Prompt</td>
+                  <td>一次编写，整个团队复用</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <blockquote>
+              <strong>一句话总结：</strong> Skills 不是教模型怎么干活，而是定义在你的项目里：什么行为算数，什么标准成立，什么判断合理。它是连接"行动能力"与"语义世界"的中间层 — 一种让通用模型具备专业化、按需调用能力的通用设计模式。
+            </blockquote>
+          </div>
+
+          <div class="subsection-content" id="skills-vs-subagent">
             <div class="img-container" data-img="slide-3-1-skills-vs-subagent.png">
               <div class="placeholder">
                 <div class="placeholder-icon">⚖️</div>
@@ -1235,6 +1378,47 @@
             <blockquote>
               <strong>一句话：</strong> SubAgent 是"谁去做"，Skills 是"怎么做"。
             </blockquote>
+
+            <h3 style="margin: 32px 0 16px;">📄 Skill vs SubAgent 定义文件对比</h3>
+            <div class="img-container" data-img="slide-3-4-skill-vs-agent-code.png">
+              <div class="placeholder">
+                <div class="placeholder-icon">📋</div>
+                <div>Skill与SubAgent定义文件对比</div>
+                <div class="img-caption">images/slide-3-4-skill-vs-agent-code.png</div>
+              </div>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>对比项</th>
+                  <th>SubAgent (.claude/agents/*.md)</th>
+                  <th>Skill (SKILL.md)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>frontmatter</td>
+                  <td>name, description, tools, model</td>
+                  <td>name, description, allowed-tools</td>
+                </tr>
+                <tr>
+                  <td>body</td>
+                  <td>角色设定 + 任务指令</td>
+                  <td>知识 + 流程 + 输出模板</td>
+                </tr>
+                <tr>
+                  <td>触发</td>
+                  <td>"用 xxx 子代理做..."</td>
+                  <td>AI 自动判断</td>
+                </tr>
+                <tr>
+                  <td>执行环境</td>
+                  <td>独立上下文窗口</td>
+                  <td>当前对话中</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="subsection-content" id="skills-loading">
@@ -1689,6 +1873,77 @@ app.<span class="code-function">use</span>((err, req, res, next) => {
           <blockquote>
             <strong>核心卖点：</strong> 角色边界约束 — 子代理不会"手贱"改你的代码
           </blockquote>
+
+          <h3 style="margin: 32px 0 16px;">🚀 使用方式</h3>
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">1️⃣ 创建 Agent 定义文件</h4>
+            <div class="code-block" data-lang="bash">
+<pre><code># 创建 .claude/agents 目录
+mkdir -p .claude/agents
+
+# 创建 code-reviewer.md
+cat > .claude/agents/code-reviewer.md &lt;&lt; 'EOF'
+---
+name: code-reviewer
+description: Review code changes for quality and security
+tools: Read, Grep, Glob, Bash
+model: sonnet
+---
+
+You are a senior code reviewer.
+You are strictly read-only. NEVER modify any files.
+
+When Invoked:
+1. Run `git diff` or read specified files
+2. Analyze: Security → Performance → Maintainability
+3. Report: Critical / Warning / Suggestion
+EOF</code></pre>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">2️⃣ 使用方式</h4>
+            <table style="margin: 0;">
+              <thead>
+                <tr>
+                  <th>方式</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>自然语言描述</td>
+                  <td>"帮我审查一下 src/auth/ 目录的代码"</td>
+                </tr>
+                <tr>
+                  <td>指定范围</td>
+                  <td>"用 code-reviewer 检查这两个文件的安全问题"</td>
+                </tr>
+                <tr>
+                  <td>审查变更</td>
+                  <td>"看看我最近的提交有没有问题"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">3️⃣ 最佳实践</h4>
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <span><strong>只读约束</strong> — 不给 Edit/Write 工具，确保安全</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <span><strong>分级报告</strong> — Critical/Warning/Suggestion 结构化输出</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <span><strong>专注领域</strong> — 每个 Agent 只负责一类审查任务</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Case: Parallel Explore -->
@@ -1904,6 +2159,124 @@ app.<span class="code-function">use</span>((err, req, res, next) => {
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <h3 style="margin: 32px 0 16px;">🚀 使用方式</h3>
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">1️⃣ 开启 Agent Teams 功能</h4>
+            <div class="code-block" data-lang="bash">
+<pre><code># 设置环境变量开启实验性功能
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code></pre>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">2️⃣ 启动 Agent Team</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">告诉 Claude 创建团队并指定角色：</p>
+            <div class="code-block" data-lang="prompt">
+<pre><code>"创建一个 agent team，生成 4 个 teammates：
+- Session 侦探：调查会话管理（Redis、session 中间件）
+- 数据库侦探：调查数据层（连接池、查询性能）
+- 缓存侦探：调查缓存机制（缓存竞态、key 设计）
+- 架构侦探：全局视角（中间件链、请求生命周期）
+
+每个角色要互相共享发现，并挑战其他人的假设。"</code></pre>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">3️⃣ 指定竞争假设（推荐模式）</h4>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">为每个 teammate 分配不同的假设方向：</p>
+            <div class="code-block" data-lang="prompt">
+<pre><code>Session 侦探：假设是 Redis 重连导致会话丢失
+数据库侦探：假设是连接池耗尽导致级联故障
+缓存侦探：假设是缓存竞态条件导致数据泄漏
+架构侦探：假设是中间件链执行顺序问题
+
+请各自调查，并互相挑战对方的假设。</code></pre>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">4️⃣ 交互操作</h4>
+            <table style="margin: 0;">
+              <thead>
+                <tr>
+                  <th>快捷键</th>
+                  <th>功能</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">Shift</kbd> + <kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">↑/↓</kbd></td>
+                  <td>在 Teammates 之间切换</td>
+                </tr>
+                <tr>
+                  <td><kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">Ctrl</kbd> + <kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">T</kbd></td>
+                  <td>查看共享任务列表</td>
+                </tr>
+                <tr>
+                  <td><kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">Shift</kbd> + <kbd style="padding: 2px 6px; background: var(--bg-primary); border-radius: 4px;">Tab</kbd></td>
+                  <td>进入 Delegate Mode</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">5️⃣ 协作流程</h4>
+            <div class="workflow">
+              <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <strong>独立调查</strong>
+                  <span>各自分析代码、日志</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <strong>共享发现</strong>
+                  <span>在团队频道分享进展</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <strong>互相挑战</strong>
+                  <span>辩论和验证假设</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <strong>收敛结论</strong>
+                  <span>综合分析给出根因</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-bottom: 12px;">6️⃣ 最佳实践</h4>
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <span><strong>明确假设</strong> — 每个角色有明确的调查方向和初始假设</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🔄</div>
+                <span><strong>要求挑战</strong> — 明确要求互相质疑和验证</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <span><strong>共享任务</strong> — 使用 TaskList 跟踪进度</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🤝</div>
+                <span><strong>主动协作</strong> — 鼓励 teammates 主动分享相关发现</span>
+              </div>
+            </div>
           </div>
         </section>
 
