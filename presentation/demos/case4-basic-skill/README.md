@@ -1,4 +1,4 @@
-# 示例项目：基础 Skill
+# 示例4：基础 Skill
 
 这个项目展示最简单的 Skill 结构 - 只有一个 SKILL.md 文件。
 
